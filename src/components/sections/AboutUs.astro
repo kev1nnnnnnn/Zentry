@@ -1,0 +1,114 @@
+---
+import Info from "../cards/Info.astro";
+import Container from "../shared/Container.astro";
+import Paragraph from "../shared/Paragraph.astro";
+import Title from "../shared/Title.astro";
+import about1 from "../../../public/images/about1.png";
+---
+
+<section id="about-us" class="relative py-20 lg:py-28 overflow-hidden">
+
+    <Container>
+
+        <!-- TOPO -->
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
+
+           <!-- IMAGEM -->
+            <div class="w-full lg:w-[42%] flex justify-center overflow-visible">
+
+                <div class="relative w-screen lg:w-full max-w-none lg:max-w-lg h-[65vh] sm:h-[600px] lg:h-[650px] flex items-center justify-center">
+
+                    <!-- efeitos -->
+                    <div class="absolute rotate-45 -left-8 top-1/2 w-28 h-28 bg-gradient-to-br from-primary to-orange-400 blur-3xl opacity-40"></div>
+
+                    <div class="absolute -top-8 right-0 w-32 h-32 bg-gradient-to-br from-primary to-green-400 rounded-full blur-3xl opacity-50"></div>
+
+                    <span class="absolute w-full aspect-[16/5] -skew-x-12 rounded-full bg-gradient-to-tr from-primary to-green-400 opacity-30 blur-2xl left-0 bottom-10"></span>
+
+                    <img
+                        src={about1.src}
+                        alt="Equipe ZENTRY trabalhando com marketing, mídia e tecnologia"
+                        width="1240"
+                        height="1385"
+                        class="relative z-10
+                            w-[90vw] max-w-none
+                            sm:w-[110vw]
+                            lg:w-auto lg:h-full
+                            object-contain
+                            -mt-24 sm:-mt-16 lg:mt-0"
+                    />
+
+                </div>
+
+            </div>
+
+            <!-- TEXTO -->
+            <div class="w-full lg:w-[58%]">
+
+                <Title>
+                    Impulsionamos empresas através de marketing, mídia e tecnologia.
+                </Title>
+
+                <Paragraph className="mt-8 text-base lg:text-lg leading-8 lg:leading-9">
+                    A <strong>ZENTRY</strong> nasceu com o propósito de conectar criatividade,
+                    inovação e estratégia em um único ecossistema empresarial.
+
+                    <br /><br />
+
+                    Atuamos nas áreas de marketing, tecnologia e comunicação,
+                    oferecendo soluções completas para empresas que desejam crescer,
+                    se posicionar e gerar resultados reais.
+
+                    <br /><br />
+
+                    Mais do que prestar serviços, construímos marcas fortes,
+                    desenvolvemos soluções inteligentes e criamos estratégias que
+                    conectam empresas ao seu público.
+                </Paragraph>
+
+            </div>
+
+        </div>
+
+        <!-- MISSÃO / VISÃO / VALORES -->
+        <div class="pt-16 lg:pt-20 grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <Info
+                title="Missão"
+                description="Entregar soluções estratégicas em marketing, mídia e tecnologia que gerem crescimento, posicionamento e inovação para empresas."
+            >
+                <span slot="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                    </svg>
+                </span>
+            </Info>
+
+            <Info
+                title="Visão"
+                description="Ser referência em comunicação, inovação e transformação digital no Brasil e em todo o mundo."
+            >
+                <span slot="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                </span>
+            </Info>
+
+            <Info
+                title="Valores"
+                description="Inovação, credibilidade, resultado e comprometimento em cada projeto e solução desenvolvida."
+            >
+                <span slot="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m6 2.25a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </span>
+            </Info>
+
+        </div>
+
+    </Container>
+
+</section>

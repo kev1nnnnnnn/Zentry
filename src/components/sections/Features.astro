@@ -1,0 +1,137 @@
+---
+import Container from "../shared/Container.astro";
+import Paragraph from "../shared/Paragraph.astro";
+import Title from "../shared/Title.astro";
+import about2 from "../../../public/images/about2.png";
+---
+
+<section id="features">
+    <Container className="flex flex-col-reverse midmd:flex-row items-center gap-12 lg:gap-20">
+
+        <!-- CONTEÚDO -->
+        <div class="flex-1 flex midmd:w-6/12 lg:w-[46%] flex-col justify-center">
+
+            <Title>
+                Por que escolher a  <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600">ZENTRY</span>?
+            </Title>
+
+            <Paragraph className="mt-8">
+                A <strong>ZENTRY</strong> conecta estratégia, criatividade e tecnologia para entregar soluções completas que impulsionam marcas, fortalecem empresas e geram resultados reais.
+            </Paragraph>
+
+            <Paragraph className="mt-3">
+                Atuamos de forma estratégica e personalizada, oferecendo um ecossistema completo em marketing, mídia, tecnologia e comunicação para empresas que desejam crescer no digital e no mercado.
+            </Paragraph>
+
+            <div class="mt-10 space-y-6">
+
+                <!-- ITEM -->
+                <div class="flex items-start gap-4">
+                    <span class="min-w-10 h-10 rounded-full bg-box-bg text-primary flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3.082c.56-1.036 2.304-1.036 2.863 0l.67 1.24a1.5 1.5 0 001.13.78l1.4.203c1.17.17 1.705 1.608.858 2.433l-1.013.987a1.5 1.5 0 00-.432 1.327l.239 1.393c.2 1.163-1.02 2.05-2.067 1.5l-1.252-.658a1.5 1.5 0 00-1.396 0l-1.252.658c-1.046.55-2.266-.337-2.067-1.5l.239-1.393a1.5 1.5 0 00-.432-1.327l-1.013-.987c-.847-.825-.312-2.262.858-2.433l1.4-.203a1.5 1.5 0 001.13-.78l.67-1.24z" />
+                        </svg>
+                    </span>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-heading-1">
+                            Estratégia personalizada
+                        </h3>
+
+                        <p class="mt-2 text-heading-3">
+                            Cada empresa possui objetivos diferentes e criamos soluções exclusivas para cada cliente.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ITEM -->
+                <div class="flex items-start gap-4">
+                    <span class="min-w-10 h-10 rounded-full bg-box-bg text-primary flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L21 3m0 0v4.5M21 3h-4.5M3 12h18m-9 9V3" />
+                        </svg>
+                    </span>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-heading-1">
+                            Marketing + tecnologia
+                        </h3>
+
+                        <p class="mt-2 text-heading-3">
+                            Unimos criatividade, mídia e inovação tecnológica para potencializar resultados.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ITEM -->
+                <div class="flex items-start gap-4">
+                    <span class="min-w-10 h-10 rounded-full bg-box-bg text-primary flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.742-.479 3 3 0 00-4.682-2.72m.94 3.198l-.001.031c0 .225-.012.447-.035.666A11.944 11.944 0 0112 21c-2.17 0-4.206-.576-5.965-1.584A6.062 6.062 0 016 18.75m12 0a5.971 5.971 0 00-.94-3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                        </svg>
+                    </span>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-heading-1">
+                            Atendimento próximo
+                        </h3>
+
+                        <p class="mt-2 text-heading-3">
+                            Acompanhamos cada projeto de forma estratégica, humanizada e focada em performance.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ITEM -->
+                <div class="flex items-start gap-4">
+                    <span class="min-w-10 h-10 rounded-full bg-box-bg text-primary flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.5h16.5v15H3.75v-15zm3 3h10.5m-10.5 4.5h10.5m-10.5 4.5h6" />
+                        </svg>
+                    </span>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-heading-1">
+                            Soluções completas
+                        </h3>
+
+                        <p class="mt-2 text-heading-3">
+                            Da gestão de redes sociais ao desenvolvimento tecnológico, entregamos tudo em um só ecossistema.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- IMAGEM -->
+        <div class="mx-auto midmd:max-w-none lg:mx-0 flex-1 flex w-full midmd:w-6/12 lg:w-[54%] midmd:h-auto">
+
+            <div class="w-full h-[420px] sm:h-[540px] lg:h-[720px] relative">
+
+                <div class="absolute rotate-45 -left-5 md:-left-10 lg:-left-20 xl:-left-24 p-1 top-1/2 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 blur-3xl opacity-50"></div>
+
+                <div class="absolute p-1 -top-4 md:-top-10 right-0 w-24 h-24 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60"></div>
+
+                <span class="absolute w-full aspect-[16/5] -skew-x-12 rounded-full bg-gradient-to-tr from-primary to-green-400 opacity-40 blur-2xl left-0 bottom-0"></span>
+
+                <img
+                    src={about2.src}
+                    alt="Marketing digital, tecnologia e inovação"
+                    width="1240"
+                    height="1385"
+                      class="relative z-10
+                            w-[90vw] max-w-none
+                            sm:w-[110vw]
+                            lg:w-auto lg:h-full
+                            object-contain
+                            -mt-24 sm:-mt-16 lg:mt-0"
+                    />
+                />
+
+            </div>
+
+        </div>
+
+    </Container>
+</section>

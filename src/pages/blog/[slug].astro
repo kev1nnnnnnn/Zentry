@@ -1,0 +1,92 @@
+---
+export const prerender = false;
+
+import "../../styles/global.css";
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../components/shared/Container.astro";
+
+import { db } from "../../lib/firebase";
+import { doc, getDoc } from "firebase/firestore";
+
+type Post = {
+  titulo: string;
+  descricao: string;
+  conteudo: string;
+  imagem?: string;
+  slug?: string;
+  criado_em?: any;
+};
+
+const { slug } = Astro.params;
+
+if (!slug) return Astro.redirect("/404");
+
+const docRef = doc(db, "posts", slug);
+const docSnap = await getDoc(docRef);
+
+if (!docSnap.exists()) return Astro.redirect("/404");
+
+// 🔥 AQUI é onde resolve o erro do TS
+const post = docSnap.data() as Post & { id: string };
+post.id = docSnap.id;
+---
+
+<Layout title={`${post.titulo} | ZENTRY Blog`}>
+
+<main class="pt-28 lg:pt-36 pb-24 min-h-screen bg-body relative overflow-hidden">
+
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-0 left-0 w-[400px] h-[400px] bg-primary/10 blur-[140px] rounded-full"></div>
+    <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-green-500/10 blur-[140px] rounded-full"></div>
+  </div>
+
+  <Container>
+
+    <nav class="mb-10">
+      <a href="/blog" class="text-sm text-heading-3 hover:text-primary flex items-center gap-2">
+        ← Voltar para o blog
+      </a>
+    </nav>
+
+    <header class="max-w-4xl mx-auto text-center">
+
+      <span class="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full">
+        Notíciais
+      </span>
+
+      <h1 class="mt-5 text-xl md:text-2xl lg:text-3xl font-bold text-heading-1 leading-tight tracking-normal capitalize break-words">
+       {post.titulo}
+      </h1>
+
+    </header>
+
+    {post.imagem && (
+      <figure class="max-w-5xl mx-auto mt-12">
+
+        <div class="rounded-2xl overflow-hidden  bg-box-bg">
+
+          <div class="aspect-[16/9] w-full ">
+            <img
+              src={post.imagem}
+              alt={post.titulo}
+              class="w-full h-full object-contain object-center"
+              loading="lazy"
+            />
+          </div>
+
+        </div>
+
+      </figure>
+    )}
+
+    <section class="max-w-3xl mx-auto mt-16">
+
+      <article class="blog-content" set:html={post.conteudo} />
+
+    </section>
+
+  </Container>
+
+</main>
+
+</Layout>

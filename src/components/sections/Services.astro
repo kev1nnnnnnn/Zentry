@@ -1,0 +1,119 @@
+---
+import Service from "../cards/Service.astro";
+import Container from "../shared/Container.astro";
+import Paragraph from "../shared/Paragraph.astro";
+import Title from "../shared/Title.astro";
+import { services } from "../../utils/data.ts";
+
+type ServiceCategory = "agencia" | "tec" | "news";
+
+type ServicesProps = {
+  title: string;
+  description: string;
+  icon: string;
+  category: ServiceCategory;
+};
+
+// ✅ agora é escalável (não quebra mais quando adicionar item)
+const agencia = services.filter((s) => s.category === "agencia");
+const tec = services.filter((s) => s.category === "tec");
+const news = services.filter((s) => s.category === "news");
+---
+
+<section id="services">
+  <Container className="space-y-16 md:space-y-20">
+
+    <!-- HEADER -->
+    <div class="text-center max-w-3xl mx-auto space-y-4">
+      <Title>
+        O que oferecemos
+      </Title>
+
+      <Paragraph>
+        Soluções completas em marketing, mídia e tecnologia para empresas que desejam crescer de forma estratégica.
+      </Paragraph>
+    </div>
+
+    <!-- ===================== -->
+    <!-- ZENTRY AGÊNCIA -->
+    <!-- ===================== -->
+    <div class="space-y-8">
+
+      <div class="max-w-2xl space-y-4">
+        <h2 class="text-2xl md:text-3xl font-bold text-heading-1">
+          ZENTRY AGÊNCIA
+        </h2>
+
+        <Paragraph>
+          Criamos estratégias e conteúdos que fortalecem sua marca, aumentam seu alcance e geram conexão com o público.
+        </Paragraph>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {agencia.map((service: ServicesProps) => (
+          <Service
+            title={service.title}
+            description={service.description}
+            icon={service.icon}
+          />
+        ))}
+      </div>
+
+    </div>
+
+    <!-- ===================== -->
+    <!-- ZENTRY TEC -->
+    <!-- ===================== -->
+    <div class="space-y-8">
+
+      <div class="max-w-2xl space-y-4">
+        <h2 class="text-2xl md:text-3xl font-bold text-heading-1">
+          ZENTRY TEC
+        </h2>
+
+        <Paragraph>
+          Criamos aplicativos personalizados e soluções digitais modernas para empresas que desejam inovar e otimizar processos.
+        </Paragraph>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {tec.map((service: ServicesProps) => (
+          <Service
+            title={service.title}
+            description={service.description}
+            icon={service.icon}
+          />
+        ))}
+      </div>
+
+    </div>
+
+    <!-- ===================== -->
+    <!-- ZENTRY NEWS -->
+    <!-- ===================== -->
+    <div class="space-y-8">
+
+      <div class="max-w-2xl space-y-4">
+        <h2 class="text-2xl md:text-3xl font-bold text-heading-1">
+          ZENTRY NEWS
+        </h2>
+
+        <Paragraph>
+          Realizamos cobertura estratégica de eventos, entrevistas, ativações e experiências através da ZENTRY News.
+        </Paragraph>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {news.map((service: ServicesProps) => (
+          <Service
+            title={service.title}
+            description={service.description}
+            icon={service.icon}
+          />
+        ))}
+      </div>
+
+    </div>
+
+  </Container>
+</section>

@@ -1,0 +1,159 @@
+---
+import "../../styles/global.css";
+
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../components/shared/Container.astro";
+import Title from "../../components/shared/Title.astro";
+import Paragraph from "../../components/shared/Paragraph.astro";
+import { formatTitle } from '../../utils/formatTitle'
+
+import { listarPosts } from "../../services/posts";
+
+const posts = await listarPosts();
+---
+
+<Layout title="Blog | ZENTRY">
+
+<section class="relative pt-32 pb-24 overflow-hidden bg-body min-h-screen">
+
+    <!-- EFEITOS -->
+    <div class="absolute top-0 left-0 w-72 h-72 bg-primary/20 blur-[120px] rounded-full pointer-events-none"></div>
+
+    <div class="absolute bottom-0 right-0 w-72 h-72 bg-green-500/20 blur-[120px] rounded-full pointer-events-none"></div>
+
+    <Container>
+
+        <!-- HERO -->
+        <div class="max-w-4xl mx-auto text-center">
+
+            <span class="inline-flex items-center px-4 py-2 rounded-full border border-box-border bg-box-bg text-primary text-sm font-medium">
+              ZENTRY News
+            </span>
+
+            <div class="mt-6">
+
+                <Title>
+                    Insights sobre
+                    <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 via-primary to-green-600">
+                        Marketing, Tecnologia e Negócios
+                    </span>
+                </Title>
+
+            </div>
+
+            <div class="mt-8">
+                <Paragraph>
+                    Conteúdos exclusivos, tendências, estratégias e boas práticas
+                    para empresas que desejam crescer através da inovação.
+                </Paragraph>
+            </div>
+
+        </div>
+
+        <!-- POSTS -->
+        {posts.length > 0 ? (
+
+            <div class="mt-20 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+                {posts.map((post) => (
+
+                    <a
+                        href={`/blog/${post.id}`}
+                        class="group flex flex-col overflow-hidden rounded-3xl border border-box-border bg-box-bg hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl"
+                    >
+
+                        <!-- IMAGEM -->
+                        <div class="relative overflow-hidden">
+
+                            {post.imagem ? (
+
+                                <img
+                                    src={post.imagem}
+                                    alt={post.titulo}
+                                    class="w-full h-64 object-cover transition duration-500 group-hover:scale-110"
+                                    loading="lazy"
+                                />
+
+                            ) : (
+
+                                <div class="h-64 flex items-center justify-center bg-gradient-to-br from-primary/10 to-green-500/10">
+                                    <span class="text-heading-3">
+                                        Sem imagem
+                                    </span>
+                                </div>
+
+                            )}
+
+                        </div>
+
+                        <!-- CONTEÚDO -->
+                        <div class="flex flex-col flex-1 p-7">
+
+                            <span class="inline-flex w-fit px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium mb-4">
+                                Notíciais
+                            </span>
+
+                            <h2 class="mt-5 text-xl md:text-2xl lg:text-3xl font-bold text-heading-1 leading-tight tracking-normal break-words">
+                            {formatTitle(post.titulo)}
+                            </h2>
+
+                            <p class="mt-4 text-heading-3 line-clamp-3 flex-1"
+                                itemprop="description">
+                                {post.descricao}
+                            </p>
+
+                            <div class="mt-6 flex items-center text-primary font-semibold">
+
+                                Ler notíciais
+
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="w-5 h-5 ml-2 transition group-hover:translate-x-1"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M9 5l7 7-7 7"
+                                    />
+                                </svg>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                ))}
+
+            </div>
+
+        ) : (
+
+            <div class="text-center py-24">
+
+                <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/10 mb-6">
+                    📝
+                </div>
+
+                <h2 class="text-3xl font-bold text-heading-1">
+                    Nenhum notíciais encontrado
+                </h2>
+
+                <p class="mt-4 text-heading-3 max-w-xl mx-auto">
+                    Ainda não existem publicações cadastradas.
+                    Em breve novos conteúdos serão disponibilizados.
+                </p>
+
+            </div>
+
+        )}
+
+    </Container>
+
+</section>
+
+</Layout>
